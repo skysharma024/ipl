@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-import matplotlib.pyplot as plt
+
 
 ipl = pd.read_csv('matches (1).csv')
 deliveries = pd.read_csv('deliveries (1).csv')
@@ -66,17 +66,11 @@ if search_player:
         st.metric('Strike Rate ', t[4])
 
 
-    col1, col2 = st.columns(2)
 
 
-    with col1:
+
         st.dataframe(t[0])
 
-    with col2:
-
-        fig3 , ax3 = plt.subplots()
-        ax3.bar(t[0]['season'],t[0]['batsman_runs'])
-        st.pyplot(fig3)
 
 
 if stats:
@@ -106,20 +100,16 @@ if stats:
                 st.write()
 
             st.write("##")
-            col1,col2 = st.columns(2)
-            with col1:
 
 
-                st.write(":blue[Total Matches Played]  = ", total_matches)
-                st.write(team1, ':blue[won] = ', team1_won)
-                st.write(team2, ':blue[won] = ', team2_won)
-                st.write(':blue[Draw] = ', draw)
-                st.write(':blue[Most POTM awards ] = ', Top_Player)
 
-            with col2:
-                fig3, ax3 = plt.subplots()
-                ax3.pie([int(team1_won), int(team2_won)], labels=[team1, team2])
-                st.pyplot(fig3)
+
+            st.write(":blue[Total Matches Played]  = ", total_matches)
+            st.write(team1, ':blue[won] = ', team1_won)
+            st.write(team2, ':blue[won] = ', team2_won)
+            st.write(':blue[Draw] = ', draw)
+            st.write(':blue[Most POTM awards ] = ', Top_Player)
+
 
 
     team1_vs_team2(team1,team2)
@@ -180,14 +170,9 @@ if search_bowler:
 
     with st.container():
         st.write('##')
-        col1, col2 = st.columns(2)
 
 
-        with col1:
-            st.dataframe(t[0])
 
-        with col2:
 
-            fig3 , ax3 = plt.subplots()
-            ax3.bar(t[0]['season'],t[0]['count'])
-            st.pyplot(fig3)
+        st.dataframe(t[0])
+
